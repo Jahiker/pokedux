@@ -4,3 +4,7 @@
 .App {
   margin-top: 3rem;
 }
+
+.App .logo {
+  margin-bottom: 3rem;
+}
