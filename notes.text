@@ -1,0 +1,62 @@
+# REDUX
+
+- Es una libreria que nos ayuda a manejar el estado de la aplicacion 
+- Su trabajo es asegurar que los datos de la aplicacion esten correctamente actualizados  
+
+## QUE NECESITAMOS?
+- Donde almacenar => store
+- Como acceder => los selectores
+- Como actualizar => disparadores, actions, reducers
+
+## PINCIPIOS DE REDUX
+- Una unica fuente de verdad (store)
+-- El estado es un objeto del tipo calve: valor o arreglo (se recomienda siempre que se pueda usar clave: valor) y la profundida depende del tamaño de nuestra aplicacion
+-- El store contiene al estado y otras propiedades como disparadores y subscribers
+
+- El estado es de solo lectura, no se debe actualizar directamente sino a traves de actions
+- los actions son objetos que describen que fue lo que paso 
+
+- Los cambios deben realizarse a tarves de funciones puras (reducers)
+-- Una funcion pura si: 
+--- el valor cambia solo si la entrada cambia.
+--- para una misma entrada siempre habra una misma salida (es predecible).
+--- no tiene efectos colaterales (Solo accede a los valores que le das) no depende de variables globales o de entorno 
+
+## REDUCERS
+-- Calcular el nuevo estado solo basado en los parametros (state, action)
+-- No modifica el estado directamente (Inmutabilidad)
+-- No tener logica asyncronica 
+
+## CICLO DE VIDA DE REDUX 
+State -> Define the UI -> Action -> Reducer -> Update the store -> New state
+
+## REDUX VS CONTEXT
+-- Cuenado un sistema es opaco y no determinista, es dificil reproducir errores o agregar nuevas caracteristicas
+-- Prop drillling: cuando debes pasar props de un componente padre a un componente hijo pero antes las props pasan por un componente que no necesita esas prosp 
+
+### CONTEXT API 
+-- una forma de pasar props de componentes padres a componentes hijos sin tener que pasar por todos los niveles o componentes intermedios 
+-- Es diseñado para compartir los estados que pueden considerarse globales y que no cambian constantemente 
+-- se puede usar desde React 16.3 en adelante 
+
+### DEPURACION 
+-- Redux cuenta con un depurador que nos permite viajar en el tiempo 
+-- Context es mas dificil de depurar por estar conectado todo al mismo provider 
+
+### BUNDLE SIZE 
+-- Redux es una libreria que debes integrar
+-- Context ya viene integrado en React 
+
+### MIDDLEWARES 
+-- Redux nos permite agregar middlewares que nos permite capturar la data antes de cambiar el estado 
+-- Context no cuenta con esto 
+
+### CURVA DE APRENDIZAJE
+-- Redux debes aprender nuevos conceptos para poder manejarlo
+-- Context tiene una curva de aprendizaje mas ligera 
+
+### RENDERING
+-- Redux nos ayuda a prevenir rendering no deseados 
+
+
+
