@@ -13,7 +13,7 @@ export const featuring = (store) => (next) => (actionInfo) => {
 };
 
 export const pokePrefix = (store) => (next) => (actionName) => {
-  const newData = actionName.action.payload.map((pokemon) => {
+  const newData = actionName.payload.map((pokemon) => {
     return { ...pokemon, name: `Poke ${pokemon.name}` };
   });
   const editedAction = {

@@ -88,5 +88,6 @@ State -> Define the UI -> Action -> Reducer -> Update the store -> New state
 ## COMPOSE:
 -- Es una funcionalidad de programacion funcional que compina funciones de derecha a izquierda 
 
-
-
+## THUNK:
+-- Es un Middleware que extiende las capacidades del store (enhancer), nos permite realizar acciones asíncronas en nuestros actions creators que por defecto no podemos hacer
+-- Es un concepto de programacion donde se ultiliza una funcion para retrasar la ejecucion de una operacion

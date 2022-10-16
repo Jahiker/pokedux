@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import App from './App' ;
 import { pokemonsReducers } from './reducers/pokemons';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import { applyMiddleware, compose, legacy_createStore as createStore } from 'redux';
-import { featuring, logger, pokePrefix } from './middlewares';
+import { logger, pokePrefix } from './middlewares';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const composedEnhansed = compose(window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(logger, featuring, pokePrefix))
+const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const composedEnhansed = composeAlt(applyMiddleware(thunk, logger, pokePrefix));
 
 const store = createStore(
   pokemonsReducers,
