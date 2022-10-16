@@ -48,8 +48,13 @@ State -> Define the UI -> Action -> Reducer -> Update the store -> New state
 -- Context ya viene integrado en React 
 
 ### MIDDLEWARES 
--- Redux nos permite agregar middlewares que nos permite capturar la data antes de cambiar el estado 
+-- Es una pieza de codigo que se ejecuta entre el tiempo que ocurre un request y se recibe la respuesta de ese request
+-- en el caso de Redux los middleware se ejecutan despues de ejecutar un action y antes que que el action llegue al reducer 
+-- podemos hacer log de errores, fetch de data y depurar la aplicacion 
 -- Context no cuenta con esto 
+
+-- const logger = (store) => (next) => (action) => {} 
+-- next es la funcion que llamaremos al finalizar el middleware y manda el action al reducer 
 
 ### CURVA DE APRENDIZAJE
 -- Redux debes aprender nuevos conceptos para poder manejarlo
@@ -57,6 +62,31 @@ State -> Define the UI -> Action -> Reducer -> Update the store -> New state
 
 ### RENDERING
 -- Redux nos ayuda a prevenir rendering no deseados 
+
+## REDUX CONNECT VS USESELECTOR
+
+-- Boilerplate: con el uso de los hooks en menos lineas de codigo 
+-- Separacion de responsabilidades: connect crea un HOC, el cual se encarga de renderizar el componente y pasarle los actions y el state a traves de las props 
+ 
+## REDUX HOOKS API 
+-- useSelector -> const list = useSelector(state => state.list);
+-- Nos permite extraer data del state
+-- El valor se guardara en una variable y no se pasara por props 
+-- El selector subscribe el componente al estado, por lo que sera llamado cada vez que se hace discpacth de una aplicacion 
+-- Se evalua si el valor cambios y en caso de que si cambie, se vuelve a renderizar el componente
+
+-- useDispatch -> const dispatch = useDispatch(); dispatch(myAction());
+-- Nos retorna una referencia del dispatcher y esto lo utilizamos para disparar nuestras actions 
+
+## STORE CREATOR (createStore):
+-- Funcion que crea el store de redux 
+
+## ENHANCER:
+-- Potenciadores del store 
+-- Son HOC que toma el store y lo devuelve potenciado 
+
+## COMPOSE:
+-- Es una funcionalidad de programacion funcional que compina funciones de derecha a izquierda 
 
 
 
